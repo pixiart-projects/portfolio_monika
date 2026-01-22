@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Portfolio Moniki</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<nav>
+<span class="logo-portfolio"><a href="#">Portfolio</a></span>
+<div class="hamburger-menu" id="hamburger-btn">
+<div class="bar1"></div>
+<div class="bar2"></div>
+<div class="bar3"></div>
+</div>
+<div class="nav-links" id="nav-links">
+<a href="#o-mnie">O mnie</a>
+<a href="#projekty">Projekty</a>
+<a href="#skills">Narzędzia</a>
+<a href="#kontakt">Kontakt</a>
+</div>
+</nav>
+<section class="hero">
+<canvas id="grid-canvas"></canvas>
+<div class="content">
+<h1>Frontend Developer<br />& Grafik</h1>
+<p>Łączę projektowanie wizualne z kodowaniem</p>
+<button onclick="document.querySelector('#kontakt').scrollIntoView({behavior:'smooth'})">Skontaktuj się</button>
+</div>
+</section>
+<section id="o-mnie">
+<canvas class="blob-canvas"></canvas>
+<h2>O mnie</h2>
+<div class="o-mnie-container">
+<div class="o-mnie-container_left"></div>
+<div class="o-mnie-container_right">
+<p>
+Cześć, jestem Monika.
+<br>
+W tym roku kończę informatykę o specjalności grafika komputerowa. 
+Pasjonuję się tworzeniem nowoczesnych stron internetowych, interaktywnych animacji 
+<br>
+i projektów graficznych. 
+Staram się łączyć estetykę z funkcjonalnością. 
+<br>
+W projektowaniu najbardziej cenię sobie swobodę, jaką daje 
+panowanie nad kodem, oraz możliwość jednoczesnego kreowania designu - lubię to magiczne uczucie, gdy rzeczy 
+powstają na styku technologii i sztuki.
+<br>
+Obecnie szukam stałego zatrudnienia (UoP) i/lub praktyk studenckich, 
+gdzie będę mogła wnieść swój warsztat w realizację realnych projektów
+i wspólnie tworzyć wartościowe rozwiązania wizualne.
+</p>
+</div>
+</div>
+</section>
+<section id="projekty">
+<h2>Projekty</h2>
+<h3>Frontend & Web design</h3>
+<div class="projekty-grid">
+<div class="card" data-image="img/sushi okładka.png" data-title="Sashirō Sushi" data-description="Responsywna strona internetowa dla restauracji sushi „Sashirō Sushi”. Strona prezentuje ofertę kulinarną z menu z filtrem. Narzędzia: HTML, CSS, JavaScript, Figma" data-link="http://sushi.pixiart.pl/">
+<div class="card-visual"><img src="img/sushi okładka.png" alt="Sushi Master"></div>
+<div class="card-info"><p class="card-project-title">Sashirō Sushi</p></div>
+</div>
+<div class="card" data-image="img/metro club okładka.png" data-title="Metro Club" data-description="Responsywna strona internetowa dla klubu nocnego „Metro Club”. Zawiera interaktywne sekcje, takie jak „Online Vibes” oraz galerię zdjęć, utrzymane w futurystycznym, neonowym stylu inspirowanym kulturą klubową i cyberpunkiem. Narzędzia: HTML, CSS, JavaScript, Figma, Adobe Illustrator" data-link="https://metroclub.pixiart.pl">
+<div class="card-visual"><img src="img/metro club okładka.png" alt="Metro Club"></div>
+<div class="card-info"><p class="card-project-title">Metro Club</p></div>
+</div>
+<div class="card" data-image="img/leśna suszka okładka.png" data-title="Leśny Azyl" data-description="Responsywna strona internetowa promująca „Leśny Azyl”. Spokojne, zaciszne miejsce z relaksacyjnym, leśnym efektem audio. Narzędzia: HTML, CSS, JavaScript" data-link="https://lesnyazyl.pixiart.pl">
+<div class="card-visual"><img src="img/leśna suszka okładka.png" alt="Leśny Azyl"></div>
+<div class="card-info"><p class="card-project-title">Leśny Azyl</p></div>
+</div>
+<div class="card" data-image="img/urocze chwile okładka.png" data-title="Urocze Chwile" data-description="Responsywna strona internetowa dla firmy eventowej. Lekki, pastelowy design. Narzędzia: HTML, CSS, JavaScript, Figma" data-link="https://uroczechwile.pixiart.pl">
+<div class="card-visual"><img src="img/urocze chwile okładka.png" alt="Urocze Chwile"></div>
+<div class="card-info"><p class="card-project-title">Urocze Chwile</p></div>
+</div>
+<div class="card soon" data-image="img/ilustracja_art.jpg" data-title="3D">
+<div class="card-visual">
+<div class="soon-overlay">Wkrótce...</div>
+</div>
+<div class="card-info"><p class="card-project-title">Wkrótce...</p></div>
+</div>
+<div class="card soon" data-image="img/ilustracja_art.jpg" data-title="3D">
+<div class="card-visual">
+<div class="soon-overlay">Wkrótce...</div>
+</div>
+<div class="card-info"><p class="card-project-title">Wkrótce...</p></div>
+</div>
+</div>
+<h3>Creative Coding</h3>
+<div class="projekty-grid">
+<div class="card" data-image="img/rolki okładka.png" data-title="ROLKI REWIZJA (R-77)" data-description="Webowy projekt artystyczny z interaktywnymi rolkami oraz efektami wizualnymi (flash, light), wyposażony w przyciski do przewijania i zoomu. Projekt stanowi dialog z artystą Józefem Robakowskim, twórcą dzieła „Rolki” (1970), reinterpretując jego koncept w środowisku cyfrowym. Narzędzia: HTML, CSS, JavaScript" data-link="https://rolki.pixiart.pl">
+<div class="card-visual"><img src="img/rolki okładka.png" alt="ROLKI REWIZJA (R-77)"></div>
+<div class="card-info"><p class="card-project-title">ROLKI REWIZJA (R-77)</p></div>
+</div>
+<div class="card" data-image="img/nova okładka.png" data-title="Nova" data-description="Webowy projekt artystyczny „Planetarna cisza”, który pozwala na przejęcie kontroli nad Novą. Umożliwia eksplorację poprzez zmianę kolorów oraz interakcję za pomocą gestów (przesuwanie i przewijanie). Narzędzia: HTML, CSS, JavaScript" data-link="https://nova.pixiart.pl">
+<div class="card-visual"><img src="img/nova okładka.png" alt="Nova"></div>
+<div class="card-info"><p class="card-project-title">Nova</p></div>
+</div>
+<div class="card soon" data-image="img/ilustracja_art.jpg" data-title="3D">
+<div class="card-visual">
+<div class="soon-overlay">Wkrótce...</div>
+</div>
+<div class="card-info"><p class="card-project-title">Wkrótce...</p></div>
+</div>
+</div>
+<h3 id="web-design">Web design</h3>
+<div class="projekty-grid">
+<div class="card" data-image="img/stepone okładka.JPG" data-title="Stepone Branding" data-description="Projekt graficzny sklepu sportowego w estetyce dark mode, łączący głęboki granat z energetycznym pomarańczem oraz dynamiczną typografią. Koncepcja zakłada wykorzystanie AI w sekcji personalizacji produktu z dedykowanym panelem edycyjnym 3D. Narzędzia: Adobe Photoshop, Adobe Illustrator" data-link="stepone.html">
+<div class="card-visual"><img src="img/stepone okładka.JPG" alt="Stepone Branding"></div>
+<div class="card-info"><p class="card-project-title">Stepone Branding</p></div>
+</div>
+<div class="card" data-image="img/prawnik okładka.jpg" data-title="Kancelaria Prawna" data-description="Projekt graficzny strony-wizytówki kancelarii prawnej, utrzymany w klasycznej estetyce opartej na bieli, złocie i głębokim granacie. Projekt zakłada użycie efektu parallaxy. Narzędzia: Figma, Adobe Photoshop, Adobe Illustrator" data-link="prawnik.html">
+<div class="card-visual"><img src="img/prawnik okładka.jpg" alt="Prawnik"></div>
+<div class="card-info"><p class="card-project-title">Kancelaria Prawna</p></div>
+</div>
+<div class="card" data-image="img/BIOswift okładka.jpg" data-title="BIOswift" data-description="Projekt graficzny sklepu z ekologiczną żywnością oraz spersonalizowanego cateringu dietetycznego, utrzymany w świeżej, biało-zielonej estetyce. Projekt zakłada zintegrowany system wyboru planów posiłków oraz interaktywne menu z dynamicznymi kartami dań. Narzędzia: Figma, Adobe Photoshop, Adobe Illustrator" data-link="bioswift.html">
+<div class="card-visual"><img src="img/BIOswift okładka.jpg" alt="BIOswift"></div>
+<div class="card-info"><p class="card-project-title">BIOswift</p></div>
+</div>
+<div class="card" data-image="img/okładka Arum.png" data-title="Aurum" data-description="Projekt strony restauracy - w trakcie przebudowy. Narzędzia: Figma" data-link="aurum.html">
+<div class="card-visual"><img src="img/okładka Arum.png" alt="aurum"></div>
+<div class="card-info"><p class="card-project-title">Aurum Restauracja</p></div>
+</div>
+<div class="card" data-image="img/walkMe okładka.jpg" data-title="WalkMeP" data-description="Projekt aplikacji mobilnej dedykowanej opiece nad zwierzętami, utrzymany w naturalnej palecie zieleni i beżu. Projekt zakłada system geolokalizacji GPS w czasie rzeczywistym oraz rozbudowany moduł rezerwacji spacerów zintegrowany z profilami opiekunów. Narzędzia: Adobe Illustrator" data-link="walkme.html">
+<div class="card-visual"><img src="img/walkMe okładka.jpg" alt="WalkMe"></div>
+<div class="card-info"><p class="card-project-title">WalkMeP</p></div>
+</div>
+<div class="card" data-image="img/eSWAP okładka.jpg" data-title="eSWAP" data-description="Projekt aplikacji mobilnej typu community marketplace, promującej ideę gospodarki obiegu zamkniętego poprzez wymianę towarów i usług. Charakteryzuje się zielono-pomarańczową paletą barw. Zakłada system wielostronnej wymiany przedmiotów. Narzędzia: Figma, Adobe Photoshop, Adobe Illustrator" data-link="eswap.html">
+<div class="card-visual"><img src="img/eSWAP okładka.jpg" alt="eSWAP"></div>
+<div class="card-info"><p class="card-project-title">eSWAP</p></div>
+</div>
+</div>
+<h3 id="grafika-projektowa">Grafika projektowa</h3>
+<div class="projekty-grid">
+<div class="card" data-image="img/okladki/loga_ikony_okładka.jpg" data-title="Loga i ikonografia" data-description="Projekty: loga i ikonografia. Narzędzia: Adobe Illustrator, Adobe InDesign" data-link="loga.html">
+<div class="card-visual"><img src="img/okladki/loga_ikony_okładka.jpg" alt="logo"></div>
+<div class="card-info"><p class="card-project-title">Loga i ikonografia</p></div>
+</div>
+<div class="card soon" data-image="img/branding_okladka.jpg" data-title="Branding">
+<div class="card-visual">
+<div class="soon-overlay">Wkrótce</div>
+</div>
+<div class="card-info"><p class="card-project-title">Branding</p></div>
+</div>
+<div class="card" data-image="img/okladki/okladka_spa.jpg" data-title="social media" data-description="Projekty postów na social media: Adobe Photoshop" data-link="socialmedia.html">
+<div class="card-visual"><img src="img/okladki/okladka_spa.jpg" alt="social media"></div>
+<div class="card-info"><p class="card-project-title">Social media</p></div>
+</div>
+<div class="card soon" data-image="img/dtp_okladka.jpg" data-title="DTP i Druk">
+<div class="card-visual">
+<div class="soon-overlay">Wkrótce</div>
+</div>
+<div class="card-info"><p class="card-project-title">DTP</p></div>
+</div>
+</div>
+<!--<h3>Illustration & Digital Art</h3>
+<div class="projekty-grid">
+<div class="card soon" data-image="img/malarstwo.jpg" data-title="">
+<div class="card-visual">
+<div class="soon-overlay">Wkrótce</div>
+</div>
+<div class="card-info"><p class="card-project-title">Illustration</p></div>
+</div>
+<div class="card soon" data-image="img/digitalpainting.jpg" data-title="">
+<div class="card-visual">
+<div class="soon-overlay">Wkrótce</div>
+</div>
+<div class="card-info"><p class="card-project-title">Digital painting</p></div>
+</div>
+<div class="card soon" data-image="img/ilustracja_art.jpg" data-title="3D">
+<div class="card-visual">
+<div class="soon-overlay">Wkrótce</div>
+</div>
+<div class="card-info"><p class="card-project-title">3D</p></div>
+</div>-->
+</div>
+<h3>Sztuka</h3>
+<div class="projekty-grid">
+<div class="card soon" data-image="img/malarstwo.jpg" data-title="Malarstwo">
+<div class="card-visual">
+<div class="soon-overlay">Wkrótce</div>
+</div>
+<div class="card-info"><p class="card-project-title">Malarstwo</p></div>
+</div>
+<div class="card" data-image="img/art/rysunek/rysunek_ (4).png" data-title="Rysunek" data-description="Rysunek odręczny. Narzędzia: ołówek, węgiel, tusz" data-link="rysunek.html">
+<div class="card-visual"><img src="img/art/rysunek/rysunek_ (4).png" alt="Rysunek"></div>
+<div class="card-info"><p class="card-project-title">Rysunek</p></div>
+</div>
+<div class="card soon" data-image="img/Video Art.jpg" data-title="Video Art">
+<div class="card-visual">
+<div class="soon-overlay">Wkrótce</div>
+</div>
+<div class="card-info"><p class="card-project-title">Video Art</p></div>
+</div>
+</div>
+<h3 id="laboratorium-ai">Laboratorium AI</h3>
+<div class="projekty-grid">
+<div class="card" data-image="img/kobieta na rybie.jpg" data-title="Realizm Magiczny" data-description="Realizmu magicznego wygenerowany AI. Narzędzia: Midjourney, DALL-E" data-link="realizmmagiczny.html">
+<div class="card-visual"><img src="img/kobieta na rybie.jpg" alt="Realizm Magiczny"></div>
+<div class="card-info"><p class="card-project-title">Realizm Magiczny</p></div>
+</div>
+<div class="card" data-image="img/lab/ilustracje/ilustracja_3.jpg" data-title="Ilustracje" data-description="Ilustracje - szkice koncepcyjne i prace cyfrowe wygenerowane przez AI. Narzędzia: AI" data-link="ilustracjeAI.html">
+<div class="card-visual"><img src="img/lab/ilustracje/ilustracja_3.jpg" alt="Ilustracje AI"></div>
+<div class="card-info"><p class="card-project-title">Ilustracje</p></div>
+</div>
+<div class="card" data-image="img/lab/tekstury/tekstura_1.jpg" data-title="Tekstury Web" data-description="Zbiór tekstur i wzorów wygenerowanych przez AI do zastosowań w web designie. Narzędzia: AI" data-link="teksturyWEB.html">
+<div class="card-visual"><img src="img/lab/tekstury/tekstura_1.jpg" alt="Tekstury AI"></div>
+<div class="card-info"><p class="card-project-title">Tekstury Web</p></div>
+</div>
+</div>
+</section>
+<section id="skills">
+<canvas class="blob-canvas"></canvas>
+<h2>Narzędzia</h2>
+<div class="skills-list">
+<div class="skill-column">
+<h3>Frontend i Programowanie</h3>
+<ul>
+<li>HTML5 / CSS3 (SCSS)</li>
+<li>JavaScript (ES6+)</li>
+<li>Three.js / WebGL</li>
+<li>GSAP / Animacje</li>
+</ul>
+</div>
+<div class="skill-column">
+<h3>Grafika i Design</h3>
+<ul>
+<li>Adobe Photoshop</li>
+<li>Adobe Illustrator</li>
+<li>Adobe InDesign</li>
+<li>Canva</li>
+<li>Figma / Adobe XD</li>
+<li>Adobe After Effects (podstawy)</li>
+<li>Adobe Premiere Pro (podstawy)</li>
+<li>Blender (podstawy 3D)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="kontakt">
+<h2>Kontakt</h2>
+<p>Skontaktuj się ze mną poprzez e-mail:</p>
+<p><span>monika@pixiart.pl</span></p>
+</section>
+<footer>
+&copy; 2025 Moje Portfolio 
+</footer>
+<div id="project-modal" class="modal">
+<div class="modal-content">
+<span class="close-btn">&times;</span>
+<div class="modal-container">
+<div class="modal-left-image">
+<img src="" alt="Obraz projektu" id="modal-image">
+</div>
+<div class="modal-right-text">
+<a href="#" target="_blank" class="modal-button" id="modal-link">Zobacz Projekt</a>
+<p id="modal-description"></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

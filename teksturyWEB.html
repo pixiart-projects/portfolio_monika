@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekstury | Pixiart AI Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Michroma&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --card-bg: #161616;
+            --accent-blue: #00aaff;
+            --text-gray: #a0a0a0;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-dark);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+      
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            box-sizing: border-box;
+        }
+
+        .logo-portfolio a {
+            font-family: 'Michroma', sans-serif;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        header {
+            padding: 140px 5% 60px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Michroma', sans-serif;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .textures-grid {
+            display: flex;
+            gap: 20px;
+            padding: 0 5% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .galeria-item {
+            flex: 1;
+            max-width: 580px;
+            position: relative;
+            background: var(--card-bg);
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid #222;
+            transition: 0.4s ease;
+        }
+
+        .galeria-item:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: 0.6s ease;
+        }
+
+        .footerproject-modern {
+            padding: 40px 5%;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            background: transparent;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 50px;
+        }
+
+        .footerproject-modern a {
+            text-decoration: none;
+        }
+
+        .footerproject-modern .segment-title {
+            font-family: 'Michroma', sans-serif;
+            color: var(--text-gray);
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .footerproject-modern a:hover .segment-title {
+            color: var(--accent-blue);
+        }
+
+        #slider-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(5, 5, 5, 0.98);
+            justify-content: center; align-items: center;
+        }
+
+        .slider-content img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+        }
+
+        .close-slider {
+            position: absolute; top: 30px; right: 40px;
+            color: white; font-size: 3rem; cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .textures-grid { flex-direction: column; align-items: center; }
+            .galeria-item { width: 100%; }
+        }
+    </style>
+</head>
+<body class="project-background">
+
+<nav>
+    <span class="logo-portfolio"><a href="index.html">Portfolio</a></span>
+    <div class="nav-links">
+        <a href="index.html#laboratorium-ai">Powrót</a>
+    </div>
+</nav>
+
+<header>
+    <h1>Tekstury</h1>
+    <p>AI Texture Generation</p>
+</header>
+
+<div class="textures-grid">
+    <div class="galeria-item" onclick="openSlider('img/lab/tekstury/tekstura_1.jpg')">
+        <img src="img/lab/tekstury/tekstura_1.jpg" alt="Tekstura 1">
+    </div>
+
+    <div class="galeria-item" onclick="openSlider('img/lab/tekstury/tekstura_2.jpg')">
+        <img src="img/lab/tekstury/tekstura_2.jpg" alt="Tekstura 2">
+    </div>
+</div>
+
+<div id="slider-modal">
+    <span class="close-slider">&times;</span>
+    <div class="slider-content">
+        <img src="" id="slider-img">
+    </div>
+</div>
+
+<footer class="footerproject-modern">
+    <a href="mailto:monika@pixiart.pl?subject=Wiadomość ze strony Pixiart">
+        <span class="segment-title">monika@pixiart.pl</span>
+    </a>
+    <a href="https://pixiart.pl" target="_blank">
+        <span class="segment-title">portfolio</span>
+    </a>
+</footer>
+
+<script>
+    const modal = document.getElementById('slider-modal');
+    const sliderImg = document.getElementById('slider-img');
+    const closeBtn = document.querySelector('.close-slider');
+
+    function openSlider(path) {
+        sliderImg.src = path;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    closeBtn.onclick = () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    };
+
+    modal.onclick = (e) => { if(e.target === modal) closeBtn.onclick(); };
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") closeBtn.onclick();
+    });
+</script>
+
+</body>
+</html>
