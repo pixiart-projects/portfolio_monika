@@ -195,6 +195,9 @@ overflow: hidden;
 cursor: pointer;
 transition: transform 0.3s ease;
 }
+.card-visual{
+border:1px solid  rgba(255, 255, 255, 0.1);
+}
 .projekty-grid .card:hover {
 transform: translateY(-5px);
 }
