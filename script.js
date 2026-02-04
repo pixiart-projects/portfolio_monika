@@ -182,15 +182,28 @@ function changeBlobColor() {
 }
 
 function activatePulsing() {
+    material.needsUpdate = true;
+
     gsap.to(clickNoiseFactor, {
-        duration: 0.15,
-        value: 1.0,
+        duration: 0.1,
+        value: 2.0, 
+        ease: "power2.out",
         onComplete: () => {
             gsap.to(clickNoiseFactor, {
-                duration: 0.65,
+                duration: 2.0,
                 value: 0.0,
+                ease: "elastic.out(1, 0.2)"
             });
-        },
+        }
+    });
+
+    gsap.to({}, {
+        duration: 0.1,
+        delay: 0.6,
+        onComplete: () => {
+            material.flatShading = false;
+            material.needsUpdate = true;
+        }
     });
 }
 interactiveSections.forEach((section) => {
@@ -237,8 +250,8 @@ window.addEventListener('resize', () => {
 const sectionPositions = {
     '#o-mnie': { x: -3.0, y: 1.5, scale: 0.5 },
     '#projekty': { x: -0.1, y: -0.2, scale: 0.55 },
-    '#skills': { x: 0.7, y: 1.5, scale: 0.6 },
-    '#kontakt': { x: 2.8, y: -2.0, scale: 0.7 },
+    '#skills': { x: 0.7, y: 0.7, scale: 0.6 },
+    '#kontakt': { x: 2.5, y: -1.0, scale: 0.7 },
 };
 
 gsap.set(blob.position, {
