@@ -75,6 +75,18 @@ cursor: pointer;
 .project-segment{
     padding-bottom: 0;
 }
+.image-box-minimal header.project-segment, 
+.image-box-minimal section.project-segment {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    width: 100%;
+}
+
+.project-segment h1 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+}
 @media (max-width: 1024px) {
 .grid-kwadraty { grid-template-columns: repeat(3, 1fr); }
 .nav-btn { width: 45px; height: 45px; }
@@ -82,20 +94,24 @@ cursor: pointer;
 </style>
 </head>
 <body class="project-background">
-<nav>
-<span class="logo-portfolio"><a href="index.html">Portfolio</a></span>
-<div class="nav-links">
-<a href="index.html#grafika-projektowa">Powrót</a>
-</div>
-</nav>
-<main class="project-detail-container-minimal" style="padding-top: 100px;">
-<div class="image-box-minimal" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <nav>
+        <span class="logo-portfolio"><a href="index.html">Portfolio</a></span>
+        <div class="nav-links">
+            <a href="index.html#web-design">Powrót</a>
+        </div>
+    </nav>
+
+    <main class="project-detail-container-minimal">
+        <div class="image-box-minimal">
+            <header class="page-header">
+            <h1>Grafika projektowa</h1>
+            <p>Loga i ikonografia</p>
+            </header>
 <header class="project-segment">
-<h1>Loga i Ikonografia</h1>
-<p>Branding / Visual Identity / Icon Design</p>
+<h1>Księgi znaków</h1>
+<p></p>
 </header>
 <section class="project-segment" style="margin-top: 60px;">
-<span class="segment-title">1. KSIĘGI ZNAKÓW</span>
 <div class="projekty-grid">
 <div class="card" data-image="img/okladki/logo_bioswift_okladka.jpg" data-title="Księga Znaku 01" data-description="Ksiega znaku dla marki BioSwift. Narzędzia: InDesign" data-link="bioswift_icon.html">
 <div class="card-visual"><img src="img/okladki/logo_bioswift_okladka.jpg" alt="logo BioSwift"></div>
@@ -108,7 +124,10 @@ cursor: pointer;
 </div>
 </section>
 <section class="project-segment" style="margin-top: 60px;">
-<span class="segment-title">2. LOGA</span>
+<header class="project-segment">
+<h1>Loga</h1>
+<p></p>
+</header>
 <div class="grid-kwadraty" data-gallery="loga">
 <div class="kwadrat"><img src="img/icon/loga/happyhome.jpg" alt="Logo 1"></div>
 <div class="kwadrat"><img src="img/icon/loga/logoMexican.png" alt="Logo 2"></div>

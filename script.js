@@ -164,18 +164,23 @@ const basePositions = geometry.attributes.position.array.slice();
 let clickNoiseFactor = {
     value: 0.0
 };
-const colors = [0x18a5c4, 0xbc0f8e, 0xc48518];
+const colors = [0x18a5c4, 0xbc0f8e, 0xc48518, 0x3d3def, 0x00ffcc];
+let currentColorIndex = 0;
 const interactiveSections = document.querySelectorAll(
     '#o-mnie, #projekty, #skills, #kontakt'
 );
 
 function changeBlobColor() {
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    const newColor = new THREE.Color(colors[randomIndex]);
+    currentColorIndex++;
+    if (currentColorIndex >= colors.length) {
+        currentColorIndex = 0;
+    }
+    const nextColor = new THREE.Color(colors[currentColorIndex]);
+    
     gsap.to(material.color, {
-        r: newColor.r,
-        g: newColor.g,
-        b: newColor.b,
+        r: nextColor.r,
+        g: nextColor.g,
+        b: nextColor.b,
         duration: 0.5,
         ease: 'power2.out',
     });

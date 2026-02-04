@@ -1,9 +1,11 @@
 body {
 margin: 0;
-font-family: 'Inter', sans-serif;
-background: #000;
-color: #ffffff;
-scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #000000 70%, #01256e 100%);
+  background-attachment: fixed;
+  color: #ffffff;
+  scroll-behavior: smooth;
+  min-height: 100vh;
 }
 nav {
 position: fixed;
@@ -564,6 +566,29 @@ gap: 40vw;
 #web-design, 
 #grafika-projektowa {
     scroll-margin-top: 120px;
+}
+.page-header {
+    padding: 100px 5% 40px; /* Odstęp od góry i dołu */
+    text-align: center;
+}
+
+.page-header h1 {
+    font-family: 'Michroma', sans-serif;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-family: 'Poppins', sans-serif;
+    color: #a0a0a0; /* Szary tekst pomocniczy */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin: 0;
+}
+.image-box-minimal .project-segment:first-of-type {
+    border-top: none;
+    padding-top: 0;
 }
 @media (max-width: 1024px) {
 .hero h1 { font-size: 6vw; }
