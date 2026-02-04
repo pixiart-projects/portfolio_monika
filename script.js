@@ -420,6 +420,7 @@ function updateBlobResponsive() {
     cameraBlob.updateProjectionMatrix();
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
     updateBlobResponsive();
 });
