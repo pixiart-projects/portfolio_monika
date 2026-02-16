@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
 margin: 0;
@@ -9,6 +10,7 @@ margin: 0;
   color: #ffffff;
   scroll-behavior: smooth;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 nav {
   position: fixed;
@@ -140,12 +142,14 @@ opacity: 0;
 transform: translate(0, -8px) rotate(45deg);
 }
 section {
-padding: 100px 10%;
+padding: 120px 10%;
 box-sizing: border-box;
 position: relative;
-z-index: 10;
-padding-top: 150px;
 }
+#kontakt{
+    padding-top: 250px!important;
+}
+
 #logo, #o-mnie,
 #projekty,
 #skills,
@@ -159,6 +163,7 @@ text-align: center;
 font-family: 'Michroma', sans-serif;
 font-weight: 700;
 margin-top: -50px;
+z-index: 100;
 }
 section p {
 max-width: 800px;
@@ -172,6 +177,7 @@ width: 100%;
 height: 100vh;
 overflow: hidden;
 padding: 0;
+z-index: 10;
 }
 .hero canvas {
 position: absolute;
@@ -206,6 +212,7 @@ font-family: 'Michroma', sans-serif;
 font-size: 1.2rem;
 margin-bottom: 25px;
 opacity: 0.85;
+
 }
 .hero button {
 background: #2d6bff;
@@ -238,6 +245,7 @@ min-width: 50%;
 flex: 1;
 min-width: 50%;
 text-align: left;
+z-index: 100;
 }
 .o-mnie-container_right p {
 margin: 0;
@@ -347,6 +355,7 @@ object-position: center;
     width: 100%;
     padding: 100px 10%;
     box-sizing: border-box;
+    background: transparent;
 }
 
 .skills-grid {
@@ -484,10 +493,12 @@ object-position: center;
 .icon-light {
     filter: invert(1) brightness(2);
 }
-#certyfikaty {
+#certyfikaty, #kontakt, footer{
 padding: 100px 0;
-overflow: hidden;
+overflow: visible;
+z-index: 100;
 }
+#con
 
 .cert-marquee {
 width: 100%;
@@ -605,7 +616,7 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-z-index: -1;
+z-index: 2;
 pointer-events: none;
 opacity: 0;
 transition: none !important;
@@ -619,6 +630,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+padding-top: 250px!important;
 }
 footer {
 padding: 50px 10%;
@@ -1299,4 +1311,185 @@ font-size: 5rem;
 #o-mnie {
     position: relative;
     z-index: 6; 
+    scroll-behavior: smooth;
+}
+/* Zmieniamy kontener lewej strony, aby nie blokował portalu */
+.o-mnie-container_left {
+    flex: 1;
+    min-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Ważne: baza dla portalu */
+    z-index: 1;
+    /* Usuwamy margin-top stąd, przeniesiemy go do wrappera */
+    overflow: visible;
+}
+
+.topo-wrapper {
+    /* KLUCZOWA ZMIANA: position absolute wyjmuje portal z układu flex */
+    position: absolute; 
+    
+    /* Pozycjonowanie portalu: WYŻEJ (top) i w LEWO */
+    top: -370px;  /* Wyciąga portal w górę poza sekcję */
+    left: 0;    /* Centruje względem lewej kolumny */
+    transform: translate(-50%, -10%); /* Precyzyjna korekta środka */
+    
+    width: 1100px; /* Jeszcze większy, by stworzyć prawdziwy efekt portalu */
+    height: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Żeby tekst obok był klikalny */
+    z-index: -1; /* Portal chowa się pod zielonego bloba */
+}
+
+/* Zachowujemy Twoje warstwy kolorów bez zmian */
+.topo-blob {
+    position: absolute;
+    aspect-ratio: 1;
+    clip-path: shape(from 88.42% 40.59%,curve to 90.78% 60.65% with 90.99% 50.00%,curve to 83.84% 80.28% with 90.57% 71.29%,curve to 65.83% 88.35% with 77.11% 89.27%,curve to 44.88% 88.22% with 54.54% 87.43%,curve to 25.54% 84.62% with 35.21% 89.01%,curve to 9.01% 71.01% with 15.88% 80.23%,curve to 7.85% 51.41% with 2.14% 61.80%,curve to 13.24% 29.09% with 13.56% 41.02%,curve to 23.71% 13.13% with 12.92% 17.15%,curve to 44.42% 11.65% with 34.49% 9.10%,curve to 63.18% 16.16% with 54.35% 14.21%,curve to 78.94% 24.64% with 72.01% 18.11%,curve to 88.42% 40.59% with 85.86% 31.18%);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Twoje kolory - zostają bez zmian */
+.tb-1 { width: 100%; background: rgba(61, 61, 239, 0.03); transform: rotate(0deg); filter: blur(15px); }
+.tb-2 { width: 90%; background: rgba(61, 61, 239, 0.07); transform: rotate(5deg); filter: blur(5px); }
+.tb-3 { width: 80%;  background: rgba(61, 61, 239, 0.09); transform: rotate(-4deg); }
+.tb-4 { width: 70%;  background: rgba(0, 0, 0, 0.1); transform: rotate(10deg); }
+.tb-5 { width: 60%;  background: rgba(0, 0, 0, 0.2); transform: rotate(-6deg); }
+.tb-6 { width: 50%;  background: rgba(0, 0, 0, 0.3); transform: rotate(-4deg); }
+.tb-7 { width: 40%;  background: rgba(0, 0, 0, 0.4); transform: rotate(5deg); filter: blur(2px); }
+.tb-8 { 
+    width: 30%; 
+    background: #020215; 
+    transform: rotate(15deg); 
+    box-shadow: inset 0 0 30px rgba(0,0,0,1); 
+}
+
+/* Sam środek - najciemniejszy punkt */
+.tb-8 { 
+    width: 20%; 
+    background: #020215; 
+    transform: rotate(15deg); 
+    box-shadow: inset 0 0 30px rgba(0,0,0,1); 
+}
+
+/* Reakcja na hover */
+.topo-wrapper:hover .topo-blob {
+    transform: scale(1.05) rotate(2deg);
+}
+/* KLUCZOWE: Zapewnienie, że sekcje są bazą dla pozycjonowania */
+#projekty, #skills {
+    position: relative;
+    overflow: visible;
+
+}
+#projekty{
+     z-index: 50;  
+}
+#skills{
+   z-index: 60;
+}
+
+/* MODYFIKATOR DLA PROJEKTÓW (PO PRAWEJ) */
+.topo-right {
+    top: 30% !important; 
+    left: auto !important;
+    right: -150px !important;
+    transform: translate(0, -50%) rotate(15deg) !important;
+}
+
+/* MODYFIKATOR DLA CERTYFIKATÓW (PO LEWEJ) */
+.topo-left {
+    top: 0 !important;
+    left: -150px !important;
+    transform: translate(0, -50%) rotate(-15deg) !important;
+}
+
+/* DODATKOWA ODMIANA DLA TOPO-ALT (np. delikatniejsza) */
+.topo-alt .topo-blob {
+    filter: blur(40px); /* Bardziej miękkie krawędzie */
+    opacity: 0.5;
+}
+
+/* ANIMACJA PŁYWANIA */
+@keyframes topoFloat {
+    0% { transform: scale(1) rotate(0deg) translate(0, 0); }
+    33% { transform: scale(1.02) rotate(2deg) translate(10px, -10px); }
+    66% { transform: scale(0.98) rotate(-1deg) translate(-5px, 15px); }
+    100% { transform: scale(1) rotate(0deg) translate(0, 0); }
+}
+
+/* Aplikacja animacji do warstw */
+.topo-blob {
+    animation: topoFloat 15s ease-in-out infinite;
+}
+
+/* Każda warstwa płynie z innym opóźnieniem dla efektu głębi */
+.tb-2 { animation-delay: -2s; }
+.tb-4 { animation-delay: -5s; }
+.tb-6 { animation-delay: -8s; }
+.tb-8 { animation-delay: -11s; }
+/* --- PROJEKTY (Creative Coding) --- */
+.topo-right {
+top: 15% !important;
+right: -140px !important;
+left: auto !important;
+/* Zmieniamy ogólną skalę i lekko ściskamy w osi X */
+transform: scale(0.8, 0.8) rotate(140deg) !important;
+}
+
+.topo-right .topo-blob {
+/* Dodajemy zaokrąglenie, które "zmiękczy" Twój clip-path */
+border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+filter: blur(20px);
+}
+
+/* --- CERTYFIKATY --- */
+.topo-left {
+top: -50% !important;
+left: -150px !important;
+/* Lustrzane odbicie i powiększenie */
+transform: scaleX(-0.9) scaleY(0.9) rotate(-10deg) !important;
+}
+
+.topo-left .topo-blob {
+/* Inny układ zaokrągleń dla zmiany sylwetki portalu */
+border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+opacity: 0.5; /* Lżejszy pod certyfikatami */
+}
+
+/* --- DODATKOWA ANIMACJA RÓŻNICUJĄCA --- */
+/* Sprawiamy, że portal w certyfikatach pulsuje wolniej */
+.topo-left .topo-blob {
+animation-duration: 25s !important;
+animation-direction: reverse; /* Kręci się w drugą stronę */
+}
+
+/* Portal w projektach jest bardziej dynamiczny */
+.topo-right .topo-blob {
+animation-duration: 12s !important;
+}
+/* Bloby, portale i canvasy stają się 'przezroczyste' dla dotyku */
+.topo-wrapper, 
+.topo-blob, 
+.blob-canvas, 
+#grid-canvas,
+.soon-overlay {
+    pointer-events: none !important;
+    z-index: 5; /* Niska warstwa */
+}
+
+/* Tekst i kontenery z treścią muszą być wyżej */
+.o-mnie-container_right, 
+.hero .content, 
+.skills-grid, 
+.projekty-grid,
+section h2,
+.animate-me,
+.scatter-text {
+    position: relative;
+    z-index: 100 !important; /* Wyraźnie wyżej niż bloby */
+    pointer-events: auto; /* Wymuszamy reagowanie na dotyk/mysz */
 }

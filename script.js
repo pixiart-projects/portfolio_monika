@@ -105,7 +105,7 @@ if (canvasBlob) {
 
     const blobConfig = {
         desktop: {
-            '#o-mnie':      { x: -1.4, y: 0.7,  scale: 0.5 },
+            '#o-mnie':      { x: -1.2, y: 0.7,  scale: 0.55 },
             '#projekty':    { x: 0,    y: -0.6, scale: 0.5 },
             '#skills':      { x: 1.6,  y: 0.5,  scale: 0.5 },
             '#certyfikaty': { x: 1.4,  y: 0.2,  scale: 0.5 },
