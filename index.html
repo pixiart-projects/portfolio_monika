@@ -18,7 +18,9 @@
 </head>
 <body>
 <nav>
-<span class="logo-portfolio"><a href="#">Portfolio</a></span>
+<div class="logo-portfolio">
+  <a href="#">Portfolio</a>
+</div>
 <div class="hamburger-menu" id="hamburger-btn">
 <div class="bar1"></div>
 <div class="bar2"></div>
@@ -28,6 +30,7 @@
 <a href="#o-mnie">O mnie</a>
 <a href="#projekty">Projekty</a>
 <a href="#skills">Narzędzia</a>
+<a href="#certyfikaty">Szkolenia</a>
 <a href="#kontakt">Kontakt</a>
 </div>
 </nav>
@@ -40,24 +43,28 @@
 </div>
 </section>
 <section id="o-mnie">
-<canvas class="blob-canvas"></canvas>
-<h2>O mnie</h2>
-<div class="o-mnie-container">
-<div class="o-mnie-container_left"></div>
+  <canvas class="blob-canvas"></canvas>
+  <h2>O mnie</h2>
+  <div class="o-mnie-container">
+    <div class="o-mnie-container_left">
+      </div>
 <div class="o-mnie-container_right">
-<p>
-Cześć, jestem Monika.
-<br>
-Tworzę nowoczesne strony internetowe (*kod + UI) i projekty graficzne.
-<br>
-Cenię czysty, nowoczesny design i intuicyjne doświadczenia użytkownika.  
-<br>
-W projektach stawiam na estetykę i funkcjonalność.
-<br>
-Obecnie szukam pracy lub praktyk, gdzie mogę rozwijać projekty webowe i graficzne.
-</p>
+  <div class="skill-card about-card">
+      <p class="animate-me">Cześć, jestem <span>Monika</span>.</p>
+     <br>
+
+      <p class="scatter-text">Zajmuję się grafiką i tworzeniem stron internetowych. Lubię, gdy kod i design współpracują ze sobą, tworząc coś prostego i funkcjonalnego.</p>
+
+      <br>
+
+      <p class="scatter-text">Cenię solidne, statyczne strony, ale skupiam się też na interakcji - zależy mi na tym, by projekty nie były tylko obrazem, ale żywym narzędziem, które reaguje na użytkownika.</p>
+
+      <br>
+
+      <p class="scatter-text">Obecnie szukam pracy lub praktyk, gdzie będę mogła rozwijać projekty webowe i graficzne.</p>
+  </div>
 </div>
-</div>
+  </div>
 </section>
 <section id="projekty">
 <h2>Projekty</h2>
@@ -183,7 +190,7 @@ Obecnie szukam pracy lub praktyk, gdzie mogę rozwijać projekty webowe i grafic
 <div class="card-info"><p class="card-project-title">Projektowanie 3D</p></div>
 </div>
 </div>
-<h3 id="grafika-projektowa">Laboratorium AI</h3>
+<h3 id="laboratorium-ai">Laboratorium AI</h3>
 <div class="projekty-grid">
 
 <div class="card" data-image="img/lab/realizmmagiczny/realizm_ (1).jpg" data-title="Realizm Magiczny AI" data-description="Wygenerowano przy użyciu AI - Estetyka i nastrój. Test możliwości generowania złożonych kompozycji wizualnych. Kadry skupione na surrealizmie i świetle." data-link="socialmedia.html">
@@ -224,49 +231,134 @@ Obecnie szukam pracy lub praktyk, gdzie mogę rozwijać projekty webowe i grafic
 
 </div>
 </section>
-<section id="skills">
-<canvas class="blob-canvas"></canvas>
-<h2>Narzędzia</h2>
-<div class="skills-list">
-<div class="skill-column">
-<h3>Frontend</h3>
-<ul>
-<li>HTML5 / CSS3 (SCSS)</li>
-<li>JavaScript (ES6+)</li>
-<li>Three.js (podstawy)</li>
-<li>WebGL (podstawy)</li>
-<li>GSAP (podstawy)</li>
-</ul>
-<br>
-<h3>Backend & Inne</h3>
-<ul>
-<li>PHP</li>
-<li>MySQL (podstawy) </li>
-<li>C++ </li>
-</ul>
-</div>
-<div class="skill-column">
-<h3>Grafika i Design</h3>
-<ul>
-<li>Adobe Photoshop</li>
-<li>Adobe Illustrator</li>
-<li>Adobe InDesign</li>
-<li>Canva</li>
-<li>Figma / Adobe XD</li>
-<li>Spline (3D Design for Web)</li>
-<li>Adobe After Effects (podstawy)</li>
-<li>Adobe Premiere Pro (podstawy)</li>
-<li>Blender (podstawy)</li>
-<li>3DS Max (podstawy)</li>
-<li>Unity (podstawy)</li>
 
-</ul>
-</div>
-</div>
+<section id="skills">
+  <canvas class="blob-canvas"></canvas>
+  <h2>Narzędzia</h2>
+  <div class="skills-grid">
+    
+    <div class="skill-card">
+      <div class="accordion-header"><h3>Frontend</h3></div>
+      <div class="accordion-content">
+        <ul>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/wordpress/wordpress-plain.svg" class="s-icon"> WordPress</li>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" class="s-icon"> HTML5 / CSS3 (SCSS)</li>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" class="s-icon"> JavaScript (ES6+)</li>
+          <li><img src="https://cdn.worldvectorlogo.com/logos/gsap-greensock.svg" class="s-icon"> GSAP (podstawy)</li>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/opengl/opengl-plain.svg" class="s-icon"> WebGL</li>
+          <li>
+  <svg viewBox="0 0 128 128" class="s-icon">
+    <path d="M16.219 15.762a1.129 1.129 0 00-1.076 1.399l24.394 98.742a1.129 1.129 0 001.879.544l73.386-70.59a1.129 1.129 0 00-.47-1.899L16.55 15.806a1.129 1.129 0 00-.331-.044zm1.584 2.754l94.024 27.07-70.566 67.877-23.458-94.947z" fill="#ffffff"></path>
+    <path d="M65.137 29.84a1.129 1.129 0 00-.807.315L27.654 65.46a1.129 1.129 0 00.471 1.898L76.984 81.44a1.129 1.129 0 001.409-1.355L66.21 30.698a1.129 1.129 0 00-1.073-.858zm-.651 3.3L75.734 78.73l-45.104-13L64.486 33.14z" fill="#ffffff"></path>
+    <path d="M46.914 47.313a1.129 1.129 0 00-1.076 1.399l6.054 24.531a1.129 1.129 0 001.88.543l18.222-17.563a1.129 1.129 0 00-.472-1.898l-24.277-6.968a1.129 1.129 0 00-.331-.044zm1.583 2.751l20.522 5.89L53.614 70.8l-5.117-20.736z" fill="#ffffff"></path>
+    <path d="M40.902 22.809a1.129 1.129 0 00-.807.316L21.873 40.687a1.129 1.129 0 00.472 1.898l24.273 6.969a1.129 1.129 0 001.408-1.356l-6.051-24.53a1.129 1.129 0 00-1.073-.86zm-.65 3.3l5.114 20.736-20.517-5.89 15.403-14.847zM89.453 36.793a1.129 1.129 0 00-.806.316L70.423 54.67a1.129 1.129 0 00.472 1.899l24.274 6.968a1.129 1.129 0 001.408-1.356l-6.05-24.53a1.129 1.129 0 00-1.074-.859zm-.65 3.3l5.114 20.737L73.4 54.94l15.403-14.846zM52.944 71.864a1.129 1.129 0 00-.74.315L33.982 89.742a1.129 1.129 0 00.472 1.898l24.278 6.968a1.129 1.129 0 001.407-1.355l-6.055-24.531a1.129 1.129 0 00-1.14-.858zm-.582 3.3l5.118 20.737-20.522-5.89 15.404-14.846z" fill="#ffffff"></path>
+  </svg> Three.js (Web 3D)
+</li>
+          <li><img src="img/spline-app-icon-v2.webp" class="s-icon"> Spline (Web 3d)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="accordion-header"><h3>Grafika & UI</h3></div>
+      <div class="accordion-content">
+        <ul>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-original.svg" class="s-icon"> Adobe Photoshop</li>
+          <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-original.svg" class="s-icon"> Adobe Illustrator</li>
+          <li><img src="https://cdn.worldvectorlogo.com/logos/adobe-indesign-cc-icon.svg" class="s-icon"> Adobe InDesign</li>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/canva/canva-original.svg" class="s-icon"> Canva</li>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" class="s-icon"> Figma / Adobe XD</li>
+        </ul>
+      </div>
+    </div>
+
+   <div class="skill-card">
+      <div class="accordion-header"><h3>3D & Video</h3></div>
+      <div class="accordion-content">
+        <ul>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/blender/blender-original.svg" class="s-icon"> Blender</li>
+          <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threedsmax/threedsmax-original.svg" class="s-icon"> 3DS Max</li>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/unity/unity-original.svg" class="s-icon"> Unity</li>
+          <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-original.svg" class="s-icon"> After Effects</li>
+          <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/premierepro/premierepro-original.svg" class="s-icon"> Premiere Pro</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="accordion-header"><h3>Backend</h3></div>
+      <div class="accordion-content">
+        <ul>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" class="s-icon"> PHP</li>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" class="s-icon"> C++</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="accordion-header"><h3>Analityka</h3></div>
+      <div class="accordion-content">
+        <ul>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" class="s-icon"> SQL (BigQuery)</li>
+          <li><img src="img/excel_16x1.svg" class="s-icon"> MS Excel</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="accordion-header"><h3>Inne</h3></div>
+      <div class="accordion-content">
+        <ul>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" class="s-icon"> MySQL (podstawy)</li>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" class="s-icon"> Visual Studio Code</li>
+          <li><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" class="s-icon" style="filter: invert(1);"> Git / GitHub</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
 </section>
+<section id="certyfikaty">
+  <h2>Certyfikaty i Rozwój</h2>
+  <div class="cert-marquee">
+    <div class="cert-marquee-content">
+      <div class="cert-tile">
+        <div class="cert-info">
+          <img src="img/footer-logo.avif" alt="ISTQB" alt="ISTQB">
+          <span class="cert-name">ISTQB<br>Foundation</span>
+        </div>
+      </div>
+      
+<div class="cert-tile">
+<div class="cert-info">
+<div class="cert-text-logo">codersbrainers</div>
+<span class="cert-name">Fullstack<br>Bootcamp</span>
+</div>
+</div>
+
+    <div class="cert-tile">
+  <div class="cert-info">
+    <div class="cert-logos-row">
+       <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="Google">
+       <img src="img/sghlogo.png" alt="SGH" class="sgh-fix">
+    </div>
+    <span class="cert-name">Umiejętności<br>Jutra: AI</span>
+  </div>
+</div>
+
+      <div class="cert-tile">
+        <div class="cert-info">
+          <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="Google">
+          <span class="cert-name">Data<br>Analytics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="kontakt">
 <h2>Kontakt</h2>
-<p>Skontaktuj się ze mną! &#128522;</p>
+<p>Skontaktuj się ze mną</p>
 <p><span>monika@pixiart.pl</span></p>
 <p>lub poprzez dane kontaktowe z CV</p>
 </section>
@@ -291,6 +383,27 @@ Obecnie szukam pracy lub praktyk, gdzie mogę rozwijać projekty webowe i grafic
 <script src="https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => {
+          const offset = 100; 
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = target.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }, 300); 
+      }
+    }
+  });
+</script>
 <script src="script.js"></script>
 </body>
 </html>
