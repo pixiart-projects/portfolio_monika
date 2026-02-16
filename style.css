@@ -608,7 +608,7 @@ height: 100%;
 z-index: -1;
 pointer-events: none;
 opacity: 0;
-transition: opacity 0.5s ease-out;
+transition: none !important;
 }
 #o-mnie > .blob-canvas,
 #skills > .blob-canvas {
@@ -1281,4 +1281,22 @@ font-size: 5rem;
       justify-content: center;
       padding: 15px 0; 
   }
+}
+#hero-section-id, .twoja-klasa-banera { 
+    position: relative;
+    z-index: 10; 
+    background: #0000ff;
+}
+
+.blob-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+#o-mnie {
+    position: relative;
+    z-index: 6; 
 }
