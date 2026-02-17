@@ -72,7 +72,7 @@ if (heroCanvas) {
 
     const gridGeo = new THREE.PlaneGeometry(30, 15, 200, 100);
     const gridBase = gridGeo.attributes.position.array.slice();
-    const gridMat = new THREE.MeshStandardMaterial({ color: 0x4338ca, metalness: 0.5, roughness: 0.3, side: THREE.DoubleSide });
+    const gridMat = new THREE.MeshStandardMaterial({ color: 0x2233ff, metalness: 0.5, roughness: 0.3, side: THREE.DoubleSide });
     const gridMesh = new THREE.Mesh(gridGeo, gridMat);
     gridMesh.rotation.x = -0.3;
     heroScene.add(gridMesh);
@@ -122,12 +122,9 @@ if (canvasBlob) {
 
     const geometryBlob = new THREE.SphereGeometry(1, 128, 128);
     const materialBlob = new THREE.MeshStandardMaterial({ 
-    color:  0x4338ca,        
-    metalness: 0.5,         
-    roughness: 0.2, 
-    emissive: 0x110033,
-    emissiveIntensity: 0.3 
-});
+        color: 0x3d3def, metalness: 0.4, roughness: 0.25, emissive: 0x000033, emissiveIntensity: 0.3 
+    });
+
     const blob = new THREE.Mesh(geometryBlob, materialBlob);
     sceneBlob.add(blob, new THREE.AmbientLight(0xffffff, 0.1));
     const dL = new THREE.DirectionalLight(0xffffff, 1); dL.position.set(3, 3, 3); sceneBlob.add(dL);
@@ -139,7 +136,7 @@ if (canvasBlob) {
     let currentBlobColorIndex = 0;
 
 function handleBlobInteraction() {
- 
+    // Zmiana koloru (Twoje wybrane kolory)
     currentBlobColorIndex = (currentBlobColorIndex + 1) % blobColors.length;
     const nextColor = new THREE.Color(blobColors[currentBlobColorIndex]);
     gsap.to(materialBlob.color, { r: nextColor.r, g: nextColor.g, b: nextColor.b, duration: 0.8 });
@@ -175,21 +172,21 @@ function animateBlob() {
     const time = Date.now() * 0.001;
     const p = geometryBlob.attributes.position;
     
-
+    // Siła zniekształcenia reagująca na kliknięcie
     const noiseIntensity = 0.2 + (0.5 * clickNoiseFactor.value); 
     
     for (let i = 0; i < p.count; i++) {
         const ix = i * 3;
         
-   
+        // Pobieramy bazowe współrzędne każdego punktu siatki
         const vx = basePositionsBlob[ix];
         const vy = basePositionsBlob[ix+1];
         const vz = basePositionsBlob[ix+2];
         
-
+        // Obliczamy szum - mniejsza częstotliwość (0.7) daje łagodniejsze fale
         let noise = simplexBlob.noise3D(vx * 0.7, vy * 0.7, time * 0.5) * noiseIntensity;
         
-
+        // Mnożymy pozycję przez szum, co daje efekt puchnięcia w każdą stronę
         p.array[ix] = vx * (1 + noise);
         p.array[ix+1] = vy * (1 + noise);
         p.array[ix+2] = vz * (1 + noise);
@@ -197,7 +194,7 @@ function animateBlob() {
     p.needsUpdate = true;
     geometryBlob.computeVertexNormals();
     
-
+    // Wolniejszy obrót wygląda bardziej elegancko przy siatce
     blob.rotation.y += 0.002; 
     rendererBlob.render(sceneBlob, cameraBlob);
 }
