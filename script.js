@@ -136,13 +136,11 @@ if (canvasBlob) {
     let currentBlobColorIndex = 0;
 
 function handleBlobInteraction() {
-    // Zmiana koloru (Twoje wybrane kolory)
     currentBlobColorIndex = (currentBlobColorIndex + 1) % blobColors.length;
     const nextColor = new THREE.Color(blobColors[currentBlobColorIndex]);
     gsap.to(materialBlob.color, { r: nextColor.r, g: nextColor.g, b: nextColor.b, duration: 0.8 });
 
     // EFEKT ROZCIĄGANIA:
-
     gsap.to(clickNoiseFactor, {
         value: 3.5,
         duration: 0.2,
@@ -172,21 +170,21 @@ function animateBlob() {
     const time = Date.now() * 0.001;
     const p = geometryBlob.attributes.position;
     
-    // Siła zniekształcenia reagująca na kliknięcie
+
     const noiseIntensity = 0.2 + (0.5 * clickNoiseFactor.value); 
     
     for (let i = 0; i < p.count; i++) {
         const ix = i * 3;
         
-        // Pobieramy bazowe współrzędne każdego punktu siatki
+
         const vx = basePositionsBlob[ix];
         const vy = basePositionsBlob[ix+1];
         const vz = basePositionsBlob[ix+2];
         
-        // Obliczamy szum - mniejsza częstotliwość (0.7) daje łagodniejsze fale
+
         let noise = simplexBlob.noise3D(vx * 0.7, vy * 0.7, time * 0.5) * noiseIntensity;
         
-        // Mnożymy pozycję przez szum, co daje efekt puchnięcia w każdą stronę
+
         p.array[ix] = vx * (1 + noise);
         p.array[ix+1] = vy * (1 + noise);
         p.array[ix+2] = vz * (1 + noise);
@@ -194,7 +192,7 @@ function animateBlob() {
     p.needsUpdate = true;
     geometryBlob.computeVertexNormals();
     
-    // Wolniejszy obrót wygląda bardziej elegancko przy siatce
+
     blob.rotation.y += 0.002; 
     rendererBlob.render(sceneBlob, cameraBlob);
 }
