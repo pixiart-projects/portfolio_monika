@@ -12,6 +12,7 @@ margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
 }
+
 nav {
   position: fixed;
   top: 0;
@@ -261,7 +262,7 @@ font-size: 1.2rem;
 }
 
 .animate-me span {
-    color: #2d6bff;
+    color: #3d3def;
     font-family: 'Michroma', sans-serif;
     font-weight: bold;
     font-size: 1rem;
@@ -1313,46 +1314,46 @@ font-size: 5rem;
     z-index: 6; 
     scroll-behavior: smooth;
 }
-/* Zmieniamy kontener lewej strony, aby nie blokował portalu */
+
 .o-mnie-container_left {
     flex: 1;
     min-width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Ważne: baza dla portalu */
+    position: relative;
     z-index: 1;
-    /* Usuwamy margin-top stąd, przeniesiemy go do wrappera */
+
     overflow: visible;
 }
 
 .topo-wrapper {
-    /* KLUCZOWA ZMIANA: position absolute wyjmuje portal z układu flex */
+  
     position: absolute; 
     
-    /* Pozycjonowanie portalu: WYŻEJ (top) i w LEWO */
-    top: -370px;  /* Wyciąga portal w górę poza sekcję */
-    left: 0;    /* Centruje względem lewej kolumny */
-    transform: translate(-50%, -10%); /* Precyzyjna korekta środka */
+    top: -370px; 
+    left: 0; 
+    transform: translate(-50%, -10%);
     
-    width: 1100px; /* Jeszcze większy, by stworzyć prawdziwy efekt portalu */
-    height: 1100px;
+    width: 1150px; 
+    height: 1150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    pointer-events: none; /* Żeby tekst obok był klikalny */
-    z-index: -1; /* Portal chowa się pod zielonego bloba */
+    pointer-events: none;
+    z-index: -1;
 }
 
-/* Zachowujemy Twoje warstwy kolorów bez zmian */
+
 .topo-blob {
     position: absolute;
     aspect-ratio: 1;
     clip-path: shape(from 88.42% 40.59%,curve to 90.78% 60.65% with 90.99% 50.00%,curve to 83.84% 80.28% with 90.57% 71.29%,curve to 65.83% 88.35% with 77.11% 89.27%,curve to 44.88% 88.22% with 54.54% 87.43%,curve to 25.54% 84.62% with 35.21% 89.01%,curve to 9.01% 71.01% with 15.88% 80.23%,curve to 7.85% 51.41% with 2.14% 61.80%,curve to 13.24% 29.09% with 13.56% 41.02%,curve to 23.71% 13.13% with 12.92% 17.15%,curve to 44.42% 11.65% with 34.49% 9.10%,curve to 63.18% 16.16% with 54.35% 14.21%,curve to 78.94% 24.64% with 72.01% 18.11%,curve to 88.42% 40.59% with 85.86% 31.18%);
     transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity: 0.9;
 }
 
-/* Twoje kolory - zostają bez zmian */
+
 .tb-1 { width: 100%; background: rgba(61, 61, 239, 0.03); transform: rotate(0deg); filter: blur(15px); }
 .tb-2 { width: 90%; background: rgba(61, 61, 239, 0.07); transform: rotate(5deg); filter: blur(5px); }
 .tb-3 { width: 80%;  background: rgba(61, 61, 239, 0.09); transform: rotate(-4deg); }
@@ -1367,7 +1368,7 @@ font-size: 5rem;
     box-shadow: inset 0 0 30px rgba(0,0,0,1); 
 }
 
-/* Sam środek - najciemniejszy punkt */
+
 .tb-8 { 
     width: 20%; 
     background: #020215; 
@@ -1375,11 +1376,11 @@ font-size: 5rem;
     box-shadow: inset 0 0 30px rgba(0,0,0,1); 
 }
 
-/* Reakcja na hover */
+
 .topo-wrapper:hover .topo-blob {
     transform: scale(1.05) rotate(2deg);
 }
-/* KLUCZOWE: Zapewnienie, że sekcje są bazą dla pozycjonowania */
+
 #projekty, #skills {
     position: relative;
     overflow: visible;
@@ -1392,7 +1393,6 @@ font-size: 5rem;
    z-index: 60;
 }
 
-/* MODYFIKATOR DLA PROJEKTÓW (PO PRAWEJ) */
 .topo-right {
     top: 30% !important; 
     left: auto !important;
@@ -1400,20 +1400,18 @@ font-size: 5rem;
     transform: translate(0, -50%) rotate(15deg) !important;
 }
 
-/* MODYFIKATOR DLA CERTYFIKATÓW (PO LEWEJ) */
 .topo-left {
     top: 0 !important;
     left: -150px !important;
     transform: translate(0, -50%) rotate(-15deg) !important;
 }
 
-/* DODATKOWA ODMIANA DLA TOPO-ALT (np. delikatniejsza) */
+
 .topo-alt .topo-blob {
-    filter: blur(40px); /* Bardziej miękkie krawędzie */
+    filter: blur(40px);
     opacity: 0.5;
 }
 
-/* ANIMACJA PŁYWANIA */
 @keyframes topoFloat {
     0% { transform: scale(1) rotate(0deg) translate(0, 0); }
     33% { transform: scale(1.02) rotate(2deg) translate(10px, -10px); }
@@ -1421,67 +1419,64 @@ font-size: 5rem;
     100% { transform: scale(1) rotate(0deg) translate(0, 0); }
 }
 
-/* Aplikacja animacji do warstw */
 .topo-blob {
     animation: topoFloat 15s ease-in-out infinite;
 }
 
-/* Każda warstwa płynie z innym opóźnieniem dla efektu głębi */
 .tb-2 { animation-delay: -2s; }
 .tb-4 { animation-delay: -5s; }
 .tb-6 { animation-delay: -8s; }
 .tb-8 { animation-delay: -11s; }
-/* --- PROJEKTY (Creative Coding) --- */
+
 .topo-right {
-top: 15% !important;
-right: -140px !important;
+top: 13% !important;
+right: -350px !important;
 left: auto !important;
-/* Zmieniamy ogólną skalę i lekko ściskamy w osi X */
+opacity: 0.75;
 transform: scale(0.8, 0.8) rotate(140deg) !important;
 }
 
 .topo-right .topo-blob {
-/* Dodajemy zaokrąglenie, które "zmiękczy" Twój clip-path */
+
 border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
 filter: blur(20px);
 }
 
-/* --- CERTYFIKATY --- */
+
 .topo-left {
 top: -50% !important;
 left: -150px !important;
-/* Lustrzane odbicie i powiększenie */
+opacity: 0.5;
 transform: scaleX(-0.9) scaleY(0.9) rotate(-10deg) !important;
 }
 
 .topo-left .topo-blob {
-/* Inny układ zaokrągleń dla zmiany sylwetki portalu */
+
 border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
-opacity: 0.5; /* Lżejszy pod certyfikatami */
+opacity: 0.5;
 }
 
-/* --- DODATKOWA ANIMACJA RÓŻNICUJĄCA --- */
-/* Sprawiamy, że portal w certyfikatach pulsuje wolniej */
+
 .topo-left .topo-blob {
 animation-duration: 25s !important;
-animation-direction: reverse; /* Kręci się w drugą stronę */
+animation-direction: reverse;
 }
 
-/* Portal w projektach jest bardziej dynamiczny */
+
 .topo-right .topo-blob {
 animation-duration: 12s !important;
 }
-/* Bloby, portale i canvasy stają się 'przezroczyste' dla dotyku */
+
 .topo-wrapper, 
 .topo-blob, 
 .blob-canvas, 
 #grid-canvas,
 .soon-overlay {
     pointer-events: none !important;
-    z-index: 5; /* Niska warstwa */
+    z-index: 5;
 }
 
-/* Tekst i kontenery z treścią muszą być wyżej */
+
 .o-mnie-container_right, 
 .hero .content, 
 .skills-grid, 
@@ -1490,6 +1485,15 @@ section h2,
 .animate-me,
 .scatter-text {
     position: relative;
-    z-index: 100 !important; /* Wyraźnie wyżej niż bloby */
-    pointer-events: auto; /* Wymuszamy reagowanie na dotyk/mysz */
+    z-index: 100 !important;
+    pointer-events: auto;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

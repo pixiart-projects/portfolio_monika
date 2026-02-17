@@ -72,7 +72,7 @@ if (heroCanvas) {
 
     const gridGeo = new THREE.PlaneGeometry(30, 15, 200, 100);
     const gridBase = gridGeo.attributes.position.array.slice();
-    const gridMat = new THREE.MeshStandardMaterial({ color: 0x2233ff, metalness: 0.5, roughness: 0.3, side: THREE.DoubleSide });
+    const gridMat = new THREE.MeshStandardMaterial({ color: 0x4338ca, metalness: 0.5, roughness: 0.3, side: THREE.DoubleSide });
     const gridMesh = new THREE.Mesh(gridGeo, gridMat);
     gridMesh.rotation.x = -0.3;
     heroScene.add(gridMesh);
@@ -122,8 +122,12 @@ if (canvasBlob) {
 
     const geometryBlob = new THREE.SphereGeometry(1, 128, 128);
     const materialBlob = new THREE.MeshStandardMaterial({ 
-        color: 0x3d3def, metalness: 0.4, roughness: 0.25, emissive: 0x000033, emissiveIntensity: 0.3 
-    });
+    color:  0x4338ca,        
+    metalness: 0.5,         
+    roughness: 0.2, 
+    emissive: 0x110033,
+    emissiveIntensity: 0.3 
+});
     const blob = new THREE.Mesh(geometryBlob, materialBlob);
     sceneBlob.add(blob, new THREE.AmbientLight(0xffffff, 0.1));
     const dL = new THREE.DirectionalLight(0xffffff, 1); dL.position.set(3, 3, 3); sceneBlob.add(dL);
@@ -131,41 +135,72 @@ if (canvasBlob) {
     const simplexBlob = new SimplexNoise();
     const basePositionsBlob = geometryBlob.attributes.position.array.slice();
     let clickNoiseFactor = { value: 0.0 };
-    const blobColors = [0x18a5c4, 0xbc0f8e, 0xc48518, 0x3d3def, 0x00ffcc];
+    const blobColors = [0x18a5c4, 0x8b5cf6, 0x00f3ff, 0x3d3def, 0x00ffcc];
     let currentBlobColorIndex = 0;
 
-    function handleBlobInteraction() {
-        currentBlobColorIndex = (currentBlobColorIndex + 1) % blobColors.length;
-        const nextColor = new THREE.Color(blobColors[currentBlobColorIndex]);
-        gsap.to(materialBlob.color, { r: nextColor.r, g: nextColor.g, b: nextColor.b, duration: 0.5 });
-        gsap.to(clickNoiseFactor, {
-            value: 2.0, duration: 0.1, ease: "power2.out",
-            onComplete: () => {
-                gsap.to(clickNoiseFactor, { value: 0.0, duration: 2.0, ease: "elastic.out(1, 0.2)" });
-            }
-        });
-    }
+function handleBlobInteraction() {
+ 
+    currentBlobColorIndex = (currentBlobColorIndex + 1) % blobColors.length;
+    const nextColor = new THREE.Color(blobColors[currentBlobColorIndex]);
+    gsap.to(materialBlob.color, { r: nextColor.r, g: nextColor.g, b: nextColor.b, duration: 0.8 });
+
+    // EFEKT ROZCIĄGANIA:
+
+    gsap.to(clickNoiseFactor, {
+        value: 3.5,
+        duration: 0.2,
+        ease: "power2.out",
+        onComplete: () => {
+            gsap.to(clickNoiseFactor, { value: 0.0, duration: 2.5, ease: "elastic.out(1, 0.3)" });
+        }
+    });
+
+    const currentScale = blob.scale.x;
+    gsap.to(blob.scale, {
+        x: currentScale * 1.3,
+        y: currentScale * 1.3,
+        z: currentScale * 1.3,
+        duration: 0.2,
+        yoyo: true,
+        repeat: 1,
+        ease: "power2.out"
+    });
+}
 
     document.querySelectorAll('#o-mnie, #projekty, #skills, #kontakt').forEach(s => s.addEventListener('click', handleBlobInteraction));
     canvasBlob.addEventListener('click', handleBlobInteraction);
 
-    function animateBlob() {
-        requestAnimationFrame(animateBlob);
-        const time = Date.now() * 0.001;
-        const p = geometryBlob.attributes.position;
-        const noiseIntensity = 0.15 + (0.4 * clickNoiseFactor.value);
-        for (let i = 0; i < p.count; i++) {
-            const ix = i * 3;
-            let noise = simplexBlob.noise3D(basePositionsBlob[ix] * 0.8, basePositionsBlob[ix+1] * 0.8, time) * noiseIntensity;
-            p.array[ix] = basePositionsBlob[ix] + noise;
-            p.array[ix+1] = basePositionsBlob[ix+1] + noise;
-            p.array[ix+2] = basePositionsBlob[ix+2] + noise;
-        }
-        p.needsUpdate = true;
-        geometryBlob.computeVertexNormals();
-        blob.rotation.y += 0.005;
-        rendererBlob.render(sceneBlob, cameraBlob);
+function animateBlob() {
+    requestAnimationFrame(animateBlob);
+    const time = Date.now() * 0.001;
+    const p = geometryBlob.attributes.position;
+    
+
+    const noiseIntensity = 0.2 + (0.5 * clickNoiseFactor.value); 
+    
+    for (let i = 0; i < p.count; i++) {
+        const ix = i * 3;
+        
+   
+        const vx = basePositionsBlob[ix];
+        const vy = basePositionsBlob[ix+1];
+        const vz = basePositionsBlob[ix+2];
+        
+
+        let noise = simplexBlob.noise3D(vx * 0.7, vy * 0.7, time * 0.5) * noiseIntensity;
+        
+
+        p.array[ix] = vx * (1 + noise);
+        p.array[ix+1] = vy * (1 + noise);
+        p.array[ix+2] = vz * (1 + noise);
     }
+    p.needsUpdate = true;
+    geometryBlob.computeVertexNormals();
+    
+
+    blob.rotation.y += 0.002; 
+    rendererBlob.render(sceneBlob, cameraBlob);
+}
     animateBlob();
 
     function initBlobScroll() {
@@ -205,40 +240,6 @@ if (canvasBlob) {
     }
 }
 
-// SCATTER TEXT
-document.querySelectorAll('.scatter-text').forEach(p => {
-    const text = p.innerText;
-    const words = text.split(' ');
-    p.innerHTML = words.map(word => {
-        const letters = word.split('').map(c => `<span>${c}</span>`).join('');
-        return `<span class="word">${letters}</span>`;
-    }).join(' '); 
-
-    const allLetters = p.querySelectorAll('.word span');
-    gsap.set(allLetters, { 
-        display: 'inline-block', 
-        opacity: 0, 
-        x: () => gsap.utils.random(-20, 20), 
-        y: () => gsap.utils.random(15, 40) 
-    });
-
-    ScrollTrigger.create({
-        trigger: p,
-        start: "top 85%", 
-        toggleActions: "play none none reverse",
-        onEnter: () => {
-            gsap.to(allLetters, { x: 0, y: 0, opacity: 1, duration: 0.8, ease: "power2.out", stagger: 0.01 });
-        },
-        onLeaveBack: () => {
-            gsap.set(allLetters, { 
-                opacity: 0, 
-                x: () => gsap.utils.random(-20, 20), 
-                y: () => gsap.utils.random(15, 40) 
-            });
-        }
-    });
-});
-
 // GLOBALNE EVENTY
 window.addEventListener('resize', () => {
     if (heroCanvas) {
@@ -265,3 +266,4 @@ document.querySelectorAll('.skill-card').forEach(card => {
         if (window.innerWidth <= 768) card.classList.toggle('active');
     });
 });
+
