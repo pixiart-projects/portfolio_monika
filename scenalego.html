@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelowanie 3D | Pixiart AI Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Michroma&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" /> 
+    
+    <style>
+        .lego-grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .galeria-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+            background: var(--card-bg, #161616);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid #222;
+            transition: 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .galeria-item:hover {
+            border-color: #2d6bff;
+            transform: translateY(-5px);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Modal / Slider */
+        #slider-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(5, 5, 5, 0.98);
+            justify-content: center; align-items: center;
+        }
+
+        .slider-content img { max-width: 90%; max-height: 85%; object-fit: contain; }
+        .nav-btn { position: absolute; background: none; border: none; color: #2d6bff; font-size: 3rem; cursor: pointer; padding: 20px; z-index: 1001; }
+        #prev-btn { left: 2%; } #next-btn { right: 2%; }
+        .close-slider { position: absolute; top: 30px; right: 40px; color: white; font-size: 3rem; cursor: pointer; z-index: 1001; }
+    </style>
+</head>
+<body class="project-background">
+
+    <nav>
+        <span class="logo-portfolio"><a href="index.html">Portfolio</a></span>
+        <div class="nav-links">
+            <a href="3d.html">Powrót | <span style="color: #2d6bff; font-size: 16px;"> Modelowanie i Wizualizacje 3D </span></a>
+        </div>
+    </nav>
+
+    <main class="project-detail-container-minimal" style="padding-top: 140px;">
+        <div class="image-box-minimal">
+            
+            <header class="project-segment">
+                <h1>Grafika Projektowa</h1>
+                <p>Modelowanie i Wizualizacje 3D</p>
+            </header>
+
+            <div class="project-segment">
+                <span class="segment-title">LEGO scena</span>
+                
+                <div class="lego-grid-container">
+                    <script>
+                        const container = document.querySelector('.lego-grid-container');
+                        for (let i = 1; i <= 3; i++) {
+                            const item = document.createElement('div');
+                            item.className = 'galeria-item';
+                            const imgPath = `img/lab/scenalego/scenalego_ (${i}).jpg`;
+                            item.setAttribute('data-full', imgPath);
+                            item.innerHTML = `<img src="${imgPath}" loading="lazy" alt="Lego Scena ${i}">`;
+                            container.appendChild(item);
+                        }
+                    </script>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <div id="slider-modal">
+        <span class="close-slider">&times;</span>
+        <button class="nav-btn" id="prev-btn">&#10094;</button>
+        <div class="slider-content">
+            <img src="" id="slider-img">
+        </div>
+        <button class="nav-btn" id="next-btn">&#10095;</button>
+    </div>
+
+    <footer class="footerproject-modern">
+        <a href="mailto:monika@pixiart.pl">
+            <span class="segment-title">monika@pixiart.pl</span>
+        </a>
+        <a href="https://portfolio.pixiart.pl" target="_blank">
+            <span class="segment-title">portfolio</span>
+        </a>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('slider-modal');
+        const sliderImg = document.getElementById('slider-img');
+        const closeBtn = document.querySelector('.close-slider');
+        let currentIndex = 0;
+        let images = [];
+
+        window.onload = () => {
+            const items = document.querySelectorAll('.galeria-item');
+            images = Array.from(items).map(item => item.getAttribute('data-full'));
+            
+            items.forEach((item, index) => {
+                item.onclick = () => {
+                    currentIndex = index;
+                    showImage();
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                };
+            });
+        };
+
+        function showImage() { sliderImg.src = images[currentIndex]; }
+        function moveNext() { currentIndex = (currentIndex + 1) % images.length; showImage(); }
+        function movePrev() { currentIndex = (currentIndex - 1 + images.length) % images.length; showImage(); }
+
+        document.getElementById('next-btn').onclick = (e) => { e.stopPropagation(); moveNext(); };
+        document.getElementById('prev-btn').onclick = (e) => { e.stopPropagation(); movePrev(); };
+        closeBtn.onclick = () => { modal.style.display = 'none'; document.body.style.overflow = 'auto'; };
+        modal.onclick = (e) => { if(e.target === modal) closeBtn.onclick(); };
+
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display === 'flex') {
+                if (e.key === "ArrowRight") moveNext();
+                if (e.key === "ArrowLeft") movePrev();
+                if (e.key === "Escape") closeBtn.onclick();
+            }
+        });
+    </script>
+</body>
+</html>
