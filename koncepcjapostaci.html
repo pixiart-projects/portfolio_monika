@@ -20,7 +20,7 @@
             flex: 1;
             min-width: 300px;
             max-width: 450px;
-            background: var(--card-bg, #161616);
+            background: black;
             border-radius: 8px;
             overflow: hidden;
             cursor: pointer;
@@ -83,7 +83,7 @@
                         for (let i = 1; i <= 3; i++) {
                             const item = document.createElement('div');
                             item.className = 'galeria-item';
-                            const imgPath = `img/lab/scenalego/scenalego_ (${i}).jpg`;
+                            const imgPath = `img/lab/postac/postac_ (${i}).png`;
                             item.setAttribute('data-full', imgPath);
                             item.innerHTML = `<img src="${imgPath}" loading="lazy" alt="Lego Scena ${i}">`;
                             container.appendChild(item);
